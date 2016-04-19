@@ -58,11 +58,11 @@ int number[15][15] = {       { 75 },
 int main(int argc, char **argv) {
   int i, j, *r;
   for (i = DOMAIN - 1; i > 0; i--) {
-    int *r = number[i];
+    *r = number[i];
     for (j = 0; j < i; j++) {
+      // Keep the larger number in each pair
       r[j] = r[j] > r[j + 1] ? r[j] : r[j + 1];
-    }
-    for (j = 0; j < i; j++) {
+      // Sum with number above
       number[i - 1][j] += r[j];
     }
   }
